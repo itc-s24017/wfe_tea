@@ -1,230 +1,254 @@
+/* ベーススタイル - 紅茶サイト向けに調整 */
 .main {
+  /* 全体のパディングや配置を調整。中央揃えは特定のセクションに限定 */
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
+  /* justify-content: flex-start;  ページ上部からコンテンツを配置 */
   align-items: center;
-  padding: 6rem;
+  padding: 0; /* 全体的なパディングは各セクションで管理 */
   min-height: 100vh;
+  background-color: #FBFBFB; /* メインカラー：オフホワイト */
+  color: #333333; /* テキストカラーを濃いめに */
+  font-family: 'serif', 'Noto Serif JP', serif; /* エレガントなセリフ体を指定 */
+}
+
+/* メインビジュアルセクション */
+.top {
+  position: relative;
+  width: 100%;
+  height: 60vh; /* ビジュアルの高さを調整 */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  overflow: hidden; /* 画像のはみ出しを防ぐ */
+  background-color: #FFF8F0; /* 温かみのあるクリーム色 */
+  padding: 8vh 5vw; /* 上下に大きな余白 */
+}
+
+.title {
+  font-size: 3.8rem; /* 大きなフォントサイズ */
+  letter-spacing: 0.18em; /* 広めの文字間 */
+  line-height: 1.2;
+  margin-bottom: 1.5rem;
+  z-index: 10; /* テキストを画像の上に表示 */
+  color: #333333;
+  font-weight: normal; /* 太すぎないフォントウェイト */
 }
 
 .description {
-  display: inherit;
-  justify-content: inherit;
-  align-items: inherit;
-  font-size: 0.85rem;
-  max-width: var(--max-width);
-  width: 100%;
-  z-index: 2;
-  font-family: var(--font-mono);
-}
-
-.description a {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 0.5rem;
-}
-
-.description p {
-  position: relative;
+  /* キャッチコピーの下の説明文 */
+  font-size: 1.2rem; /* 少し大きめ */
+  max-width: 60ch; /* 読みやすい行長 */
+  line-height: 1.8;
+  z-index: 10;
+  color: #555555;
   margin: 0;
-  padding: 1rem;
-  background-color: rgba(var(--callout-rgb), 0.5);
-  border: 1px solid rgba(var(--callout-border-rgb), 0.3);
-  border-radius: var(--border-radius);
+  letter-spacing: 0.05em;
+  font-family: 'sans-serif', 'Noto Sans JP', sans-serif; /* 説明文はサンセリフ体で読みやすく */
 }
 
-.code {
-  font-weight: 700;
-  font-family: var(--font-mono);
-}
-
-.grid {
-  display: grid;
-  grid-template-columns: repeat(4, minmax(25%, auto));
-  max-width: 100%;
-  width: var(--max-width);
-}
-
-.card {
-  padding: 1rem 1.2rem;
-  border-radius: var(--border-radius);
-  background: rgba(var(--card-rgb), 0);
-  border: 1px solid rgba(var(--card-border-rgb), 0);
-  transition: background 200ms, border 200ms;
-}
-
-.card span {
-  display: inline-block;
-  transition: transform 200ms;
-}
-
-.card h2 {
-  font-weight: 600;
-  margin-bottom: 0.7rem;
-}
-
-.card p {
-  margin: 0;
-  opacity: 0.6;
-  font-size: 0.9rem;
-  line-height: 1.5;
-  max-width: 30ch;
-  text-wrap: balance;
-}
-
-.center {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  position: relative;
-  padding: 4rem 0;
-}
-
-.center::before {
-  background: var(--secondary-glow);
-  border-radius: 50%;
-  width: 480px;
-  height: 360px;
-  margin-left: -400px;
-}
-
-.center::after {
-  background: var(--primary-glow);
-  width: 240px;
-  height: 180px;
-  z-index: -1;
-}
-
-.center::before,
-.center::after {
-  content: "";
-  left: 50%;
+.bgimg {
   position: absolute;
-  filter: blur(45px);
-  transform: translateZ(0);
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* 画像がセクション全体を覆うように */
+  opacity: 0.75; /* 画像の彩度をわずかに落として、テキストを読みやすくする */
+  filter: brightness(0.9); /* 明るさを少し調整 */
 }
 
-.logo {
-  position: relative;
+/* 商品紹介セクション */
+.news { /* 旧 .news を .products-section に変更する方がより適切ですが、ここでは既存のクラス名を使用 */
+  padding: 6rem 5vw; /* 上下左右に余白 */
+  background-color: #FBFBFB;
+  text-align: center;
 }
-/* Enable hover only on non-touch devices */
+
+.newstitle { /* 旧 .newstitle を .section-title に変更する方が適切 */
+  font-size: 2.5rem;
+  margin-bottom: 4rem;
+  letter-spacing: 0.1em;
+  color: #4A4A4A;
+  font-weight: normal;
+  position: relative;
+  display: inline-block;
+}
+.newstitle::after { /* 下線を引いてエレガントに */
+  content: '';
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  bottom: -15px;
+  width: 80px;
+  height: 1px;
+  background-color: #955F4D; /* アクセントカラーのテラコッタ */
+}
+
+
+.grid { /* 商品カードのグリッドレイアウト */
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); /* 3列表示 */
+  gap: 3rem; /* カード間の間隔 */
+  max-width: 1200px; /* 最大幅を設定 */
+  margin: 0 auto 4rem auto; /* 中央揃え */
+}
+
+.card { /* 商品カードのスタイル */
+  padding: 0; /* カード自体のパディングはなし、コンテンツで調整 */
+  border-radius: 8px; /* 角を少し丸める */
+  background: #FFFFFF; /* 白背景 */
+  border: 1px solid #E0E0E0; /* 薄いボーダー */
+  transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+  overflow: hidden; /* 画像の丸みを適用するため */
+  text-align: left; /* テキストは左寄せ */
+}
+
+.card img { /* 商品画像 */
+  width: 100%;
+  height: 200px; /* 画像の高さ固定 */
+  object-fit: cover;
+  border-bottom: 1px solid #E0E0E0;
+}
+
+.card-content { /* カード内のテキスト部分のパディング */
+  padding: 1.5rem;
+}
+
+.card h2 { /* 商品名 */
+  font-weight: 600;
+  margin-bottom: 0.8rem;
+  font-size: 1.3rem;
+  color: #333333;
+  letter-spacing: 0.05em;
+  line-height: 1.4;
+}
+
+.card p { /* 商品説明（フレーバーなど） */
+  margin: 0;
+  opacity: 0.7;
+  font-size: 0.95rem;
+  line-height: 1.6;
+  color: #666666;
+  max-width: none; /* 行長制限を解除 */
+}
+
+.card-price { /* 価格表示 */
+  font-size: 1.1rem;
+  font-weight: bold;
+  color: #955F4D; /* アクセントカラー */
+  margin-top: 1rem;
+}
+
+/* ボタンリンク */
+.newsLink { /* ButtonLinkの親要素 */
+  text-align: center;
+  margin-top: 3rem;
+}
+
+/* ButtonLinkコンポーネントのスタイル（別途定義するか、ここで直接指定） */
+/* この例では、ButtonLinkがstyles.buttonLinkを持つと仮定 */
+.buttonLink {
+  display: inline-block;
+  padding: 1rem 2.5rem;
+  border: 1px solid #955F4D; /* アクセントカラーの枠線 */
+  color: #955F4D; /* テキストカラーもアクセントカラー */
+  background-color: transparent; /* 背景は透明 */
+  text-decoration: none;
+  border-radius: 4px;
+  font-size: 1rem;
+  letter-spacing: 0.1em;
+  transition: all 0.3s ease;
+}
+
+.buttonLink:hover {
+  background-color: #955F4D; /* ホバーで背景色 */
+  color: #FFFFFF; /* テキスト白 */
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* 既存の未使用または不要なスタイルは削除・コメントアウト */
+/* .main, .center, .logo, .code などは現在のコードでは使用されないため削除または調整 */
+/* .center, .center::before, .center::after のグロー効果はミニマルデザインには不向きなため削除 */
+/* .description a, .description p (specific styling) は一般的なpとaのスタイルに統合 */
+
+
+/* ホバーエフェクト */
 @media (hover: hover) and (pointer: fine) {
   .card:hover {
-    background: rgba(var(--card-rgb), 0.1);
-    border: 1px solid rgba(var(--card-border-rgb), 0.15);
-  }
-
-  .card:hover span {
-    transform: translateX(4px);
+    transform: translateY(-8px); /* 少し上に浮き上がる */
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.08); /* 影を追加 */
   }
 }
 
 @media (prefers-reduced-motion) {
-  .card:hover span {
+  .card:hover {
     transform: none;
+    box-shadow: none;
   }
 }
 
-/* Mobile */
-@media (max-width: 700px) {
-  .content {
-    padding: 4rem;
+
+/* レスポンシブデザイン */
+@media (max-width: 768px) { /* 旧700pxを768pxに調整 */
+  .top {
+    height: 50vh;
+    padding: 6vh 4vw;
   }
 
-  .grid {
-    grid-template-columns: 1fr;
-    margin-bottom: 120px;
-    max-width: 320px;
-    text-align: center;
-  }
-
-  .card {
-    padding: 1rem 2.5rem;
-  }
-
-  .card h2 {
-    margin-bottom: 0.5rem;
-  }
-
-  .center {
-    padding: 8rem 0 6rem;
-  }
-
-  .center::before {
-    transform: none;
-    height: 300px;
+  .title {
+    font-size: 2.5rem; /* モバイルでの調整 */
+    letter-spacing: 0.1em;
+    margin-bottom: 1rem;
   }
 
   .description {
-    font-size: 0.8rem;
+    font-size: 1rem;
+    max-width: 90%;
   }
 
-  .description a {
+  .news {
+    padding: 4rem 4vw;
+  }
+
+  .newstitle {
+    font-size: 2rem;
+    margin-bottom: 3rem;
+  }
+
+  .grid {
+    grid-template-columns: 1fr; /* モバイルでは1列表示 */
+    gap: 2rem;
+    margin-bottom: 3rem;
+    max-width: 320px; /* カードの最大幅を制限 */
+  }
+
+  .card h2 {
+    font-size: 1.2rem;
+  }
+
+  .card-content {
     padding: 1rem;
   }
 
-  .description p,
-  .description div {
-    display: flex;
-    justify-content: center;
-    position: fixed;
-    width: 100%;
-  }
-
-  .description p {
-    align-items: center;
-    inset: 0 0 auto;
-    padding: 2rem 1rem 1.4rem;
-    border-radius: 0;
-    border: none;
-    border-bottom: 1px solid rgba(var(--callout-border-rgb), 0.25);
-    background: linear-gradient(
-      to bottom,
-      rgba(var(--background-start-rgb), 1),
-      rgba(var(--callout-rgb), 0.5)
-    );
-    background-clip: padding-box;
-    backdrop-filter: blur(24px);
-  }
-
-  .description div {
-    align-items: flex-end;
-    pointer-events: none;
-    inset: auto 0 0;
-    padding: 2rem;
-    height: 200px;
-    background: linear-gradient(
-      to bottom,
-      transparent 0%,
-      rgb(var(--background-end-rgb)) 40%
-    );
-    z-index: 1;
+  .buttonLink {
+    padding: 0.8rem 2rem;
+    font-size: 0.9rem;
   }
 }
 
-/* Tablet and Smaller Desktop */
-@media (min-width: 701px) and (max-width: 1120px) {
+/* タブレット・中型デスクトップ */
+@media (min-width: 769px) and (max-width: 1200px) { /* 旧1120pxを1200pxに調整 */
   .grid {
-    grid-template-columns: repeat(2, 50%);
+    grid-template-columns: repeat(2, 1fr); /* タブレットでは2列表示 */
+    gap: 2.5rem;
+  }
+  .title {
+    font-size: 3rem;
   }
 }
 
-@media (prefers-color-scheme: dark) {
-  .vercelLogo {
-    filter: invert(1);
-  }
-
-  .logo {
-    filter: invert(1) drop-shadow(0 0 0.3rem #ffffff70);
-  }
-}
-
-@keyframes rotate {
-  from {
-    transform: rotate(360deg);
-  }
-  to {
-    transform: rotate(0deg);
-  }
-}
+/* ダークモードはここでは考慮しないため、関連スタイルを削除またはコメントアウト */
+/* @media (prefers-color-scheme: dark) { ... } */
