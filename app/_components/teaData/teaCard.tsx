@@ -1,7 +1,7 @@
 import Link from 'next/link';
 import Image from 'next/image';
 import type { Tea } from '../../_libs/microcms';
-import styles from './TeaCard.module.css';
+import styles from './page.module.css';
 
 type Props = {
   tea: Tea;
