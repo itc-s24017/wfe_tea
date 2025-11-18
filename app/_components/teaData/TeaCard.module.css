@@ -1,0 +1,71 @@
+.teaCard {
+  background-color: var(--white);
+  border-radius: 15px;
+  overflow: hidden;
+  box-shadow: 0 4px 12px var(--shadow);
+  transition: all 0.3s ease;
+  display: block;
+  height: 100%;
+}
+
+.teaCard:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+}
+
+.teaImageWrapper {
+  position: relative;
+  width: 100%;
+  height: 250px;
+  overflow: hidden;
+}
+
+.teaImage {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+
+.teaCard:hover .teaImage {
+  transform: scale(1.05);
+}
+
+.categoryBadge {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  background-color: var(--tea-brown);
+  color: var(--white);
+  padding: 0.5rem 1rem;
+  border-radius: 20px;
+  font-size: 0.875rem;
+  font-weight: 600;
+}
+
+.teaContent {
+  padding: 1.5rem;
+}
+
+.teaTitle {
+  font-size: 1.5rem;
+  color: var(--tea-dark);
+  margin-bottom: 0.5rem;
+  font-weight: 600;
+}
+
+.teaOrigin {
+  font-size: 0.95rem;
+  color: var(--tea-brown);
+  margin-bottom: 0.75rem;
+  font-weight: 500;
+}
+
+.teaDescription {
+  color: var(--text-dark);
+  line-height: 1.6;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}

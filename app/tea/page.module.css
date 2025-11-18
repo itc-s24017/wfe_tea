@@ -1,0 +1,50 @@
+.teaListPage {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2rem 1rem;
+}
+
+.pageHeader {
+  text-align: center;
+  margin-bottom: 3rem;
+}
+
+.pageTitle {
+  font-size: 2.5rem;
+  color: var(--tea-dark);
+  margin-bottom: 1rem;
+}
+
+.pageDescription {
+  font-size: 1.1rem;
+  color: var(--text-dark);
+}
+
+.noTeas {
+  text-align: center;
+  padding: 4rem 2rem;
+  background-color: var(--white);
+  border-radius: 15px;
+  box-shadow: 0 4px 12px var(--shadow);
+}
+
+.noTeas p {
+  font-size: 1.2rem;
+  color: var(--text-dark);
+}
+
+.teaGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 2rem;
+}
+
+@media (max-width: 768px) {
+  .pageTitle {
+    font-size: 2rem;
+  }
+
+  .teaGrid {
+    grid-template-columns: 1fr;
+  }
+}

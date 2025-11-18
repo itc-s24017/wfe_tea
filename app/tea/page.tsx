@@ -1,32 +1,31 @@
-import Image from "next/image";
-import { TEAS_LIST_LIMIT } from "../_constants";
-import styles from "./page.module.css";
+import { getTeaList } from '../_libs/microcms';
+import TeaCard from '../_components/teaData/teaCard';
+import styles from './page.module.css';
 
-export default function Tea() {
-  const data = await getTeasList({ limit: TEAS_LIST_LIMIT });
+export const revalidate = 60; // 60秒ごとに再検証
+
+export default async function TeaListPage() {
+  const teas = await getTeaList();
+
   return (
-    <div className={styles.container}>
-      {data.contents.length === 0 ? (
-        <p className={styles.empty}>メンバーが登録されていません。</p>
+    <div className={styles.teaListPage}>
+      <div className={styles.pageHeader}>
+        <h1 className={styles.pageTitle}>紅茶コレクション</h1>
+        <p className={styles.pageDescription}>
+          世界中から集めた厳選された紅茶をご覧ください
+        </p>
+      </div>
+
+      {teas.length === 0 ? (
+        <div className={styles.noTeas}>
+          <p>紅茶がまだ登録されていません。</p>
+        </div>
       ) : (
-        <ul>
-          {data.contents.map((tea) => (
-            <li key={tea.id} className={styles.list}>
-              <Image
-                src={tea.image.url}
-                alt=""
-                width={tea.image.width}
-                height={tea.image.height}
-                className={styles.image}
-              />
-              <dl>
-                <dt className={styles.name}>{tea.name}</dt>
-                <dd className={styles.position}>{tea.position}</dd>
-                <dd className={styles.profile}>{tea.profile}</dd>
-              </dl>
-            </li>
+        <div className={styles.teaGrid}>
+          {teas.map((tea) => (
+            <TeaCard key={tea.id} tea={tea} />
           ))}
-        </ul>
+        </div>
       )}
     </div>
   );
