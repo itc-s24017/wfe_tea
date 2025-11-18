@@ -2,7 +2,7 @@ import { getTeaDetail, getTeaList } from '../../_libs/microcms';
 import Image from 'next/image';
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
-import styles from './page.module.css';
+import styles from '@/app/_components/teaData/page.module.css';
 
 type Props = {
   params: {
