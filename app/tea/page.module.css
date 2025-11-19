@@ -43,14 +43,82 @@
   font-family: 'Georgia', serif;
 }
 
+.content {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 4rem 2rem;
+}
+
+/* フィルターセクション */
+.filterSection {
+  background: var(--soft-white);
+  padding: 2.5rem;
+  border-radius: 20px;
+  margin-bottom: 3rem;
+  box-shadow: 0 4px 20px var(--shadow);
+  border: 1px solid var(--cafe-beige);
+}
+
+.filterTitle {
+  font-size: 1.5rem;
+  color: var(--cafe-espresso);
+  margin-bottom: 1.5rem;
+  font-weight: 700;
+  font-family: 'Playfair Display', serif;
+  text-align: center;
+}
+
+.filterButtons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  justify-content: center;
+}
+
+.filterButton {
+  padding: 0.75rem 2rem;
+  background: var(--cafe-cream);
+  color: var(--cafe-brown);
+  border: 2px solid var(--cafe-beige);
+  border-radius: 50px;
+  font-size: 1rem;
+  font-weight: 600;
+  font-family: 'Georgia', serif;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  letter-spacing: 0.03em;
+}
+
+.filterButton:hover {
+  background: var(--cafe-beige);
+  border-color: var(--cafe-latte);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 15px var(--shadow);
+}
+
+.filterButton.active {
+  background: linear-gradient(135deg, var(--cafe-brown), var(--cafe-dark));
+  color: var(--soft-white);
+  border-color: var(--cafe-brown);
+  box-shadow: 0 4px 15px rgba(61, 46, 37, 0.3);
+}
+
+/* 結果カウント */
+.resultCount {
+  text-align: center;
+  font-size: 1.1rem;
+  color: var(--text-secondary);
+  margin-bottom: 2rem;
+  font-family: 'Georgia', serif;
+  font-weight: 500;
+}
+
 .noTeas {
   text-align: center;
   padding: 5rem 3rem;
   background: var(--soft-white);
   border-radius: 16px;
   box-shadow: 0 4px 20px var(--shadow);
-  max-width: 1280px;
-  margin: 3rem auto;
   border: 1px solid var(--cafe-beige);
 }
 
@@ -61,9 +129,6 @@
 }
 
 .teaGrid {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 4rem 2rem;
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
   gap: 2rem;
@@ -82,8 +147,28 @@
     font-size: 1.05rem;
   }
 
-  .teaGrid {
+  .content {
     padding: 3rem 1.5rem;
+  }
+
+  .filterSection {
+    padding: 2rem 1.5rem;
+  }
+
+  .filterTitle {
+    font-size: 1.3rem;
+  }
+
+  .filterButtons {
+    gap: 0.75rem;
+  }
+
+  .filterButton {
+    padding: 0.6rem 1.5rem;
+    font-size: 0.9rem;
+  }
+
+  .teaGrid {
     grid-template-columns: 1fr;
     gap: 1.5rem;
   }

@@ -1,43 +1,42 @@
-import Link from "next/link";
-import styles from "./page.module.css";
+import type { Metadata } from "next";
 import "./globals.css";
-// import styles from "./layout.module.css";
+import styles from "./layout.module.css";
+import Link from "next/link";
 
-export default function Home() {
+export const metadata: Metadata = {
+  title: "Tea Collection - 紅茶の世界へようこそ",
+  description: "世界中の美味しい紅茶をご紹介します。",
+};
+
+export default function RootLayout({
+  children,
+}: {
+  children: React.ReactNode;
+}) {
   return (
-    <div className={styles.home}>
-      <section className={styles.hero}>
-        <div className={styles.heroContent}>
-          <h1 className={styles.heroTitle}>紅茶の世界へようこそ</h1>
-          <p className={styles.heroSubtitle}>
-            世界中から厳選された紅茶をご紹介します。<br />
-            香り豊かな一杯で、心安らぐひとときを。
-          </p>
-          <Link href="/tea" className={styles.ctaButton}>
-            紅茶を探す
-          </Link>
-        </div>
-      </section>
-
-      <section className={styles.features}>
-        <div className={styles.featuresGrid}>
-          <div className={styles.featureCard}>
-            <div className={styles.featureIcon}>🌍</div>
-            <h3>世界の産地</h3>
-            <p>インド、スリランカ、中国など、世界各地の紅茶をお届けします。</p>
+    <html lang="ja">
+      <body>
+        <header className={styles.header}>
+          <div className={styles.headerContent}>
+            <Link href="/">
+              <h1 className={styles.logo}>Tea Collection</h1>
+            </Link>
+            <nav className={styles.nav}>
+              <Link href="/">ホーム</Link>
+              <Link href="/brewing">淹れ方</Link>
+              <Link href="/tea">紅茶一覧</Link>
+            </nav>
           </div>
-          <div className={styles.featureCard}>
-            <div className={styles.featureIcon}>🍵</div>
-            <h3>豊富な種類</h3>
-            <p>ブラックティー、グリーンティー、ハーブティーなど多彩なラインナップ。</p>
-          </div>
-          <div className={styles.featureCard}>
-            <div className={styles.featureIcon}>📖</div>
-            <h3>淹れ方ガイド</h3>
-            <p>それぞれの紅茶に最適な淹れ方をご紹介しています。</p>
-          </div>
-        </div>
-      </section>
-    </div>
+        </header>
+        
+        <main className={styles.mainContent}>
+          {children}
+        </main>
+        
+        <footer className={styles.footer}>
+          <p>© 2024 Tea Collection. All rights reserved.</p>
+        </footer>
+      </body>
+    </html>
   );
 }

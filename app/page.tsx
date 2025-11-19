@@ -12,7 +12,7 @@ export default function Home() {
             香り豊かな一杯で、心安らぐひとときを。
           </p>
           <Link href="/tea" className={styles.ctaButton}>
-            紅茶を探す
+            紅茶一覧を見る
           </Link>
         </div>
       </section>

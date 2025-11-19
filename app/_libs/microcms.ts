@@ -13,6 +13,7 @@ export type Tea = {
   description: string;
   origin: string;
   flavor: string;
+  brewing: string;
   brewingMethod: string;
   temperature: string;
   category: string;
