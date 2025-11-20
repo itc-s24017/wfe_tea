@@ -8,6 +8,11 @@ type Props = {
 };
 
 export default function TeaCard({ tea }: Props) {
+  // データが不完全な場合は何も表示しない
+  if (!tea || !tea.image || !tea.image.url) {
+    return null;
+  }
+
   return (
     <Link href={`/tea/${tea.slug}`} className={styles.teaCard}>
       <div className={styles.teaImageWrapper}>

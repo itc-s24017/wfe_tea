@@ -13,10 +13,53 @@ export type Tea = {
   description: string;
   origin: string;
   flavor: string;
-  brewing: string;
   brewingMethod: string;
   temperature: string;
   category: string;
+  createdAt: string;
+  updatedAt: string;
+  publishedAt: string;
+};
+
+// 淹れ方ガイドの型定義（リッチエディタ形式）
+export type BrewingGuide = {
+  id: string;
+  name: string;
+  content: string; // リッチエディタの内容
+  image?: {
+    url: string;
+    height: number;
+    width: number;
+  };
+  createdAt: string;
+  updatedAt: string;
+  publishedAt: string;
+};
+
+export type GuideStep = {
+  fieldId: string;
+  stepNumber: number;
+  stepTitle: string;
+  stepDescription: string;
+};
+
+export type GuideTip = {
+  fieldId: string;
+  tipTitle: string;
+  tipDescription: string;
+};
+
+export type Guide = {
+  id: string;
+  title: string;
+  description: string;
+  steps: GuideStep[];
+  tips: GuideTip[];
+  image?: {
+    url: string;
+    height: number;
+    width: number;
+  };
   createdAt: string;
   updatedAt: string;
   publishedAt: string;
@@ -54,5 +97,31 @@ export const getTeaDetail = async (slug: string) => {
   } catch (error) {
     console.error('紅茶詳細の取得に失敗しました:', error);
     return null;
+  }
+};
+
+// 淹れ方ガイド一覧を取得
+export const getGuideList = async () => {
+  try {
+    const data = await client.get({
+      endpoint: 'guide',
+    });
+    return data.contents as Guide[];
+  } catch (error) {
+    console.error('ガイド一覧の取得に失敗しました:', error);
+    return [];
+  }
+};
+
+// 淹れ方（brewing）一覧を取得
+export const getBrewingList = async () => {
+  try {
+    const data = await client.get({
+      endpoint: 'brewing',
+    });
+    return data.contents as BrewingGuide[];
+  } catch (error) {
+    console.error('淹れ方一覧の取得に失敗しました:', error);
+    return [];
   }
 };

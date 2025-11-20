@@ -23,6 +23,7 @@ export default function RootLayout({
             </Link>
             <nav className={styles.nav}>
               <Link href="/">ホーム</Link>
+              <Link href="/types">種類</Link>
               <Link href="/brewing">淹れ方</Link>
               <Link href="/tea">紅茶一覧</Link>
             </nav>

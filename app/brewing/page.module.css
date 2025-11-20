@@ -120,6 +120,53 @@
   border-bottom: 2px solid var(--cafe-beige);
 }
 
+.guideBody {
+  color: var(--text-secondary);
+  line-height: 1.8;
+  font-size: 1rem;
+  font-family: 'Georgia', serif;
+}
+
+.guideBody h1,
+.guideBody h2,
+.guideBody h3 {
+  color: var(--cafe-espresso);
+  font-family: 'Playfair Display', serif;
+  margin-top: 2rem;
+  margin-bottom: 1rem;
+}
+
+.guideBody h1 {
+  font-size: 1.8rem;
+}
+
+.guideBody h2 {
+  font-size: 1.5rem;
+}
+
+.guideBody h3 {
+  font-size: 1.3rem;
+}
+
+.guideBody ol,
+.guideBody ul {
+  margin-left: 2rem;
+  margin-bottom: 1.5rem;
+}
+
+.guideBody li {
+  margin-bottom: 0.75rem;
+}
+
+.guideBody p {
+  margin-bottom: 1rem;
+}
+
+.guideBody strong {
+  font-weight: 600;
+  color: var(--cafe-dark);
+}
+
 .stepsSection,
 .tipsSection {
   margin-bottom: 3rem;
